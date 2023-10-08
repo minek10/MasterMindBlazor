@@ -1,8 +1,9 @@
 ﻿@page "/playermodal"
 @using MasterMind.Data.Enum
 
-<div class="my-2 me-3 fs-6">
-    <button class=" btn btn-outline-light rounded-circle rounded-3 float-end" @onclick="ValidPlayer">X</button>
+<div class="my-2 me-3 row">
+    <span class="mx-2 col-9 my-auto text-center text-white">Configurer un profil de jeu</span>
+    <button class="btn btn-outline-light rounded-circle rounded-1 col-2" @onclick="ValidPlayer">X</button>
 </div>
 
 <EditForm Model="Player">
@@ -13,12 +14,12 @@
 
             <div class="row w-100">
                 <div class="d-flex flex-column align-content-center col-6 my-2">
-                    <img src="/img/avatarFemale.png" style="width:150px; height:150px" class="img-fluid img-thumbnail center mb-3 bg-transparent border-0" />
+                    <img src="/img/avatarFemale.png" style="width:150px; height:150px" class="img-fluid img-thumbnail center mb-3 bg-transparent border-0" @onclick="()=> Player.Sex = SexEnum.female" />
                     <InputRadio Value="SexEnum.female">Femme</InputRadio>
                 </div>
 
                 <div class="d-flex flex-column align-content-center col-6 my-2">
-                    <img src="/img/avatarMale.png" style="width:150px; height:150px" class="img-fluid img-thumbnail center mb-3  bg-transparent border-0" />
+                    <img src="/img/avatarMale.png" style="width:150px; height:150px" class="img-fluid img-thumbnail center mb-3  bg-transparent border-0" @onclick="()=> Player.Sex = SexEnum.male" />
                     <InputRadio Value="SexEnum.male">Homme</InputRadio>
                 </div>
             </div>
