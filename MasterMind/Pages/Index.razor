@@ -1,14 +1,25 @@
 ﻿@page "/"
 
-<section class="title">
-    <h1 class="text-shadow">-- Text Shadow -- </h1>
-</section>
+<div class="d-flex w-100 justify-content-center align-items-center" style="height:30vh;">
+    <section class="col-12">
+        <h1 class="text-shadow">Master Mind</h1>
+    </section>
+</div>
 
-<div class="buttons">
-    <div class="box-1">
+<div class="d-flex w-100 justify-content-center align-items-center" style="height:50vh;">
+    <div class="row my-auto text-uppercase mx-2">
 
-        <div class="btn btn-one">
-            <span>Nouvelle partie</span>
+        <div class="btn btn-one fs-4 my-2">
+            <span @onclick="RedirectToGame"> <i class="fas fa-gamepad me-1"></i> Nouvelle partie</span>
+        </div>
+        <div class="btn btn-one fs-4 my-2">
+            <span class="menubutton"> <i class="fas fa-table me-1"></i> Meilleurs scores</span>
+        </div>
+        <div class="btn btn-one fs-4 my-2">
+            <span> <i class="fas fa-book me-1"></i> Règles du jeu</span>
+        </div>
+        <div class="btn btn-one col-12 fs-4 my-2">
+            <span> <i class="fas fa-download me-1"></i> Télécharger l'application</span>
         </div>
     </div>
 </div>
