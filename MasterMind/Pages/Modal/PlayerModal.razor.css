@@ -1,0 +1,16 @@
+﻿body {
+    background: rgb(72,60,50);
+    background: linear-gradient(24deg, rgba(72,60,50,1) 74%, rgba(200,150,102,1) 100%);
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.row{
+    margin:0;
+}
+

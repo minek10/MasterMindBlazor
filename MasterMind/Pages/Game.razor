@@ -1,0 +1,170 @@
+﻿@page "/game"
+@using MasterMind.Data.Enum
+@using MasterMind.Pages.Modal
+
+@*START BAR TITLE*@
+<div class="top-0 bg-dark row border border-1 border-dark rounded">
+
+    <div class="text-white col-4">
+        <div class="mx-1 mx-md-2 mx-xl-3 my-1 my-md-2 my-xl-3">
+            <span class="col-12"> 
+                @if(Player.Sex == SexEnum.female)
+                {
+                    <i class="fas fa-female me-2"></i>
+                    @Player.Username
+                }
+                else
+                {
+                    <i class="fas fa-male me-2"></i>
+                    @Player.Username
+                }
+            </span>
+        </div>
+    </div>
+
+    <div class="text-white col-4 text-center">
+        <div class="mx-1 mx-md-2 mx-xl-3  my-1 my-md-2 my-xl-3">
+            <span class="col-12"><i class="fas fa-table me-2"></i>@Turn sur 10</span>
+        </div>
+    </div>
+
+    <div class="text-white col-4 text-end">
+        <div class="mx-1 mx-md-2 mx-xl-3 my-1 my-md-2 my-xl-3">
+            <span class="col-12"><i class="far fa-clock fa-spin me-2"></i>@Chrono</span>
+        </div>
+    </div>
+
+</div>
+@*END BAR TITLE*@
+
+@*START ARRAY*@
+<div class="d-flex justify-content-center align-items-center align-self-center mx-3 mx-sm-0" style="min-height: 65vh;">
+
+    <div class="col-xxl-6 col-xl-7 col-lg-9 col-md-10 col-sm-11 col-12 array row rounded-3 border border-0">
+        @*START LEFT SIDE*@
+        <div class="col-8 border-end border-2 p-0 text-center">
+            <div class="parent my-auto">
+                @foreach (var answer in Answers)
+                {
+                    if (answer.Turn == Turn)
+                    {
+                        <div class="bg-opacity-25 bg-light">
+                            <button class="my-2 btnColor @answer.Color rounded-circle mx-auto" @onclick="()=>RemoveColor(answer.Id)"></button>
+                        </div>
+                    }
+                    else
+                    {
+                        <span class="my-2 btnColor @answer.Color rounded-circle mx-auto"></span>
+                    }
+                }
+
+                <span class="border-bottom border-2"></span><span class="border-bottom border-2"></span><span class="border-bottom border-2"></span><span class="border-bottom border-2"></span>
+
+                @if (IsShowCorrectLine)
+                {
+                    @foreach (var color in ColorsLine)
+                    {
+                        <div class="bg-opacity-25 bg-success">
+                            <button class="btnColor @color rounded-circle my-2 mx-auto"></button>
+                        </div>
+                    }
+                }
+                else
+                {
+                    @foreach (var color in ColorsLine)
+                    {
+                        <button class="btnColor grey rounded-circle my-2 mx-auto"></button>
+                    }
+                }
+
+            </div>
+        </div>
+        @*END LEFT SIDE*@
+
+        @*START RIGHT SIDE*@
+        <div class="col-4 rounded-3 border border-0">
+            <div class="parent my-auto">
+                @foreach (var indication in Indications)
+                {
+                    <span class="col-3 my-2 btnColor @indication.Color rounded-circle mx-auto"></span>
+                }
+            </div>
+        </div>
+        @*END RIGHT SIDE*@
+    </div>
+</div>
+@*END ARRAY*@
+
+@*START COLOR & CHECK*@
+<div class="d-flex justify-content-center align-items-center mx-3 mx-sm-0" style="min-height: 10vh;">
+
+    <div class="col-xxl-6 col-xl-7 col-lg-9 col-md-10 col-sm-11 col-12 row">
+        <div class="col-8 p-0 text-center my-auto">
+            @if (Colors != null)
+            {
+                @foreach (var color in Colors)
+                {
+                    if (IsWin)
+                    {
+                        <button class="allBtnColor @color rounded-circle mx-1 mx-lg-3" disabled></button>
+                    }
+                    else
+                    {
+                        <button class="allBtnColor @color rounded-circle mx-1 mx-lg-3" @onclick="()=> InsertColor((ColorEnum)(Enum.Parse(typeof(ColorEnum),color)))"></button>
+                    }
+                }
+            }
+        </div>
+        <div class="col-4 my-auto p-0">
+            @if (IsWin)
+            {
+                <button class="btn btn-outline-light w-100 disabled">Vérifier</button>
+            }
+            else
+            {
+                <button @onclick="CheckedLine" class="btn btn-outline-light w-100">Vérifier</button>
+            }
+
+        </div>
+    </div>
+</div>
+@*END COLOR & CHECK*@
+
+@*START NEW GAME*@
+<div class="d-flex justify-content-center align-items-center mt-2" style="min-height: 5vh;">
+    <div class="col-xxl-6 col-xl-7 col-lg-9 col-md-10 col-sm-11 col-12 row text-center">
+
+        <div class="mx-sm-1 mx-0">
+            <button class="btn btn-outline-light col-12" @onclick="NewGame">
+                <i class="fas fa-gamepad me-1"></i>
+                Nouvelle partie
+            </button>
+        </div>
+    </div>
+</div>
+@*END NEW GAME*@
+
+
+@if (IsShowPlayerModal)
+{
+    <div class="modalbg">
+        <div class="modal-content fademodal" style="width:370px; height:390px">
+            <PlayerModal PlayerCallBack="SetPlayer" />
+        </div>
+    </div> 
+}
+
+@if (IsShowEndGame)
+{
+    <div class="modalbg">
+        <div class="modal-content fademodal" style="width:370px; height:410px">
+            <EndGameModal CounterSecond="@CounterSecond" IsWin="@IsWin" UserName="@Player.Username" Attempt="@Turn" CloseModalCallBack="FinishGameReturn"/>
+        </div>
+    </div>
+}
+
+
+
+
+
+

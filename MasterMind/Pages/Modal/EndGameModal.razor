@@ -1,0 +1,47 @@
+﻿@page "/endgame"
+@using MasterMind.Data.Enum
+
+<div class="mt-2 me-3 fs-6">
+    <button class=" btn btn-outline-light rounded-circle rounded-3 float-end" @onclick="ReturnToGame">X</button>
+</div>
+
+<div class="d-block">
+    @if (IsWin)
+    {
+        <div class="row w-100 center">
+            <img src="/img/trophy.gif" style="width:300px; height:175px" class="img-fluid img-thumbnail center mb-3 bg-transparent border-0" />
+        </div>
+
+
+        <div class="mb-2 text-center text-white px-2">
+            <div class="col-12 row">
+                <span class="col-12">Bien ouej @UserName <i class="fas fa-fire-alt fs-5 ms-1" style="color: #f2460d;"></i> <i class="fas fa-fire-alt fs-5" style="color: #f2460d;"></i> <i class="fas fa-fire-alt fs-5" style="color: #f2460d;"></i></span>
+                <span class="col-12">Tu as trouvé la bonne combinaison</span>
+                <span class="col-12">en @Chrono et @Attempt coups</span>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row w-100 center mt-3">
+            <img src="/img/gameover.gif" style="width:300px; height:175px" class="img-fluid img-thumbnail center mb-3 bg-transparent border-0" />
+        </div>
+
+
+        <div class="mb-2 text-center text-white px-2">
+            <div class="col-12 row">
+                <span class="col-12">Dommage @UserName</span>
+                <span class="col-12">T'es juste un looser <i class="far fa-dizzy fs-5"></i> <i class="far fa-dizzy fs-5"></i> <i class="far fa-dizzy fs-5"></i></span>
+                <span class="col-12">Retente ta chance !</span>
+            </div>
+        </div>
+    }
+</div>
+
+
+<div class="my-4 text-center">
+    <button @onclick="ReturnToGame" class="btn btn-outline-light col-9 col-md-7 col-lg-5 col-xl-4 col-xxl-3">
+        <i class="fas fa-check-circle text-success me-1"></i>
+        Ok
+    </button>
+</div>
