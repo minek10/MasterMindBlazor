@@ -135,9 +135,13 @@
     <div class="col-xxl-6 col-xl-7 col-lg-9 col-md-10 col-sm-11 col-12 row text-center">
 
         <div class="mx-sm-1 mx-0">
-            <button class="btn btn-outline-light col-12" @onclick="NewGame">
+            <button class="btn btn-outline-light col-12 my-2" @onclick="NewGame">
                 <i class="fas fa-gamepad me-1"></i>
                 Nouvelle partie
+            </button>
+            <button class="btn btn-outline-light col-12 my-2" @onclick="BackToMenu">
+                <i class="fas fa-home me-1"></i>
+                Retour au menu
             </button>
         </div>
     </div>
@@ -148,7 +152,7 @@
 @if (IsShowPlayerModal)
 {
     <div class="modalbg">
-        <div class="modal-content fademodal" style="width:370px; height:390px">
+        <div class="modal-content fademodal" style="min-width:40vh; max-width:60vh; min-height:40vh; max-height:80vh">
             <PlayerModal PlayerCallBack="SetPlayer" />
         </div>
     </div> 
@@ -157,7 +161,7 @@
 @if (IsShowEndGame)
 {
     <div class="modalbg">
-        <div class="modal-content fademodal" style="width:370px; height:410px">
+        <div class="modal-content fademodal" style="min-width:40vh; max-width:60vh; min-height:40vh; max-height:80vh">
             <EndGameModal CounterSecond="@CounterSecond" IsWin="@IsWin" UserName="@Player.Username" Attempt="@Turn" CloseModalCallBack="FinishGameReturn"/>
         </div>
     </div>

@@ -1,5 +1,6 @@
 ﻿using MasterMind.Data;
 using MasterMind.Data.Enum;
+using Microsoft.AspNetCore.Components;
 using System.Drawing;
 using System.Xml;
 
@@ -7,6 +8,7 @@ namespace MasterMind.Pages
 {
     public partial class Game
     {
+        [Inject] NavigationManager NavigationManager { get; set; }
         public List<string> Colors { get; set; } = new List<string>() { "red", "blue", "orange", "green", "yellow", "brown", "pink", "purple" };
         public List<Piece> Answers { get; set; } = new();
         public List<Tips> Indications { get; set; } = new();
@@ -73,6 +75,13 @@ namespace MasterMind.Pages
             GenerateColorLine();
 
             aTimer.Enabled = true;
+        }
+        #endregion
+
+        #region Back To Menu
+        public void BackToMenu()
+        {
+            NavigationManager.NavigateTo("/");
         }
         #endregion
 

@@ -1,4 +1,5 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+@import url('colors.css');
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -27,6 +28,10 @@ a, .btn-link {
     padding-top: 1.1rem;
 }
 
+.row {
+    margin: 0;
+}
+
 /* --------------------------------------------------START REGION MODAL -------------------------------------------------- */
 .modalbg {
     display: block; /* Hidden by default */
@@ -48,6 +53,8 @@ a, .btn-link {
     background: linear-gradient(313deg, rgba(72,60,50,1) 74%, rgba(200,150,102,1) 100%);
     margin: 5% auto; /* 15% from the top and centered */
     animation: zoom-in-zoom-out 1.5s ease alternate;
+    overflow:auto;
+    z-index : -1000
 }
 /* --------------------------------------------------END REGION MODAL -------------------------------------------------- */
 

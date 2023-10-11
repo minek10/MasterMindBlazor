@@ -1,0 +1,48 @@
+﻿@page "/rules"
+
+<div class="mt-3 mb-2 row fixed">
+    <div class="col-10 my-auto text-center text-white fs-4">
+        <span class="ms-5"> <i class="fas fa-book me-2"></i>Règles du jeu</span>
+    </div>
+    <div class="col-2 my-auto text-center">
+        <button class="btn btn-outline-light border-0 py-0 rounded-circle fs-4" @onclick="CloseModal">X</button>
+    </div>
+</div>
+
+<div class="mx-1 text-white my-2 overflow-auto">
+    <div class="mx-2">
+        <h3 class="my-3">Le but du Mastermind</h3>
+
+        <p>
+            Le but du jeu du Mastermind pour le/la joueur/joueuse est de deviner en un minimum de coup (maximum 10) une combinaison de quatre couleur.
+        </p>
+        <p>
+            A chaque combinaison, l'intelligence artificielle placera des pions de couleurs blanches, noires, ou grises vous informant sur l'état d'avancement de vos essais.
+        </p>
+
+        @if (Colors != null)
+        {
+            <div class="text-center mt-5 mb-4">
+                @foreach (var color in Colors)
+                {
+                    <button class="allBtnColor @color rounded-circle mx-1 mx-lg-2"></button>
+                }
+            </div>
+        }
+    </div>
+
+    <div class="mx-2">
+        <h3 class="my-3">Règles</h3>
+
+        <ul>
+            <li>Une ligne se compose uniquement de quatre couleurs</li>
+            <li>Une même couleur ne peut pas se retrouver sur une même ligne</li>
+            <li>Un pion gris, signifie que une des couleurs de votre combinaison n'existe pas</li>
+            <li>Un pion noir, signifie que une des couleurs de votre combinaison est correcte mais mal placée</li>
+            <li>Un pion blanc, signifie que une des couleurs de votre combinaison est correcte et bien placée</li>
+            <li>Les pions indicateurs (gris, noir, blanc) ne respectent pas l'ordre dans lequel vous avez insérer vos couleurs</li>
+        </ul>
+    </div>
+</div>
+
+

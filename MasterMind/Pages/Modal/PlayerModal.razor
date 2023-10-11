@@ -1,9 +1,18 @@
 ﻿@page "/playermodal"
 @using MasterMind.Data.Enum
 
-<div class="my-2 me-3 row">
+@*<div class="my-2 me-3 row">
     <span class="mx-2 col-9 my-auto text-center text-white">Configurer un profil de jeu</span>
     <button class="btn btn-outline-light rounded-circle rounded-1 col-2" @onclick="ValidPlayer">X</button>
+</div>*@
+
+<div class="mt-3 mb-2 row fixed">
+    <div class="col-10 my-auto text-center text-white fs-4">
+        <span class="col-9 my-auto text-center text-white ms-4">Profil de jeu</span>
+    </div>
+    <div class="col-2 my-auto text-center">
+        <button class="btn btn-outline-light border-0 py-0 rounded-circle fs-4" @onclick="ValidPlayer">X</button>
+    </div>
 </div>
 
 <EditForm Model="Player">

@@ -1,0 +1,85 @@
+﻿@@import url('../../wwwroot/css/colors.css');
+
+row{
+    margin : 0;
+    padding:0;
+}
+
+h3 {
+    color: rgba(200, 150, 102, 0.9);
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(200, 150, 102, 0.9);
+    border-radius: 10px;
+}
+
+.allBtnColor {
+    width: 25px;
+    height: 25px;
+    border: groove;
+}
+
+
+
+@media screen and ( min-width: 567px ) {
+    ..allBtnColor {
+        width: 27px;
+        height: 27px;
+    }
+}
+
+@media screen and ( min-width: 768px ) {
+    .allBtnColor {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media screen and ( min-width: 992px ) {
+    .allBtnColor {
+        width: 29px;
+        height: 29px;
+    }
+}
+
+@media screen and ( min-width: 1200px ) {
+    .allBtnColor {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and ( min-width: 1400px ) {
+    .allBtnColor {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media screen and ( min-width: 1600px ) {
+    .allBtnColor {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+@media screen and ( min-width: 1920px ) {
+    .allBtnColor {
+        width: 36px;
+        height: 36px;
+    }
+}
