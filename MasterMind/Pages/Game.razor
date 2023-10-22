@@ -5,8 +5,8 @@
 @*START BAR TITLE*@
 <div class="top-0 bg-dark row border border-1 border-dark rounded">
 
-    <div class="text-white col-4">
-        <div class="mx-1 mx-md-2 mx-xl-3 my-1 my-md-2 my-xl-3">
+    <div class="text-white col-4 my-auto">
+        <div class="mx-1 mx-md-2 mx-xl-3 my-1 my-md-2 my-xl-3 my-auto text-truncate">
             <span class="col-12"> 
                 @if(Player.Sex == SexEnum.female)
                 {
@@ -23,13 +23,13 @@
     </div>
 
     <div class="text-white col-4 text-center">
-        <div class="mx-1 mx-md-2 mx-xl-3  my-1 my-md-2 my-xl-3">
+        <div class="mx-1 mx-md-2 mx-xl-3  my-1 my-md-2 my-xl-3 text-truncate">
             <span class="col-12"><i class="fas fa-table me-2"></i>@Turn sur 10</span>
         </div>
     </div>
 
-    <div class="text-white col-4 text-end">
-        <div class="mx-1 mx-md-2 mx-xl-3 my-1 my-md-2 my-xl-3">
+    <div class="text-white col-4 text-end ">
+        <div class="mx-1 mx-md-2 mx-xl-3 my-1 my-md-2 my-xl-3 text-truncate">
             <span class="col-12"><i class="far fa-clock fa-spin me-2"></i>@Chrono</span>
         </div>
     </div>
@@ -96,26 +96,26 @@
 @*END ARRAY*@
 
 @*START COLOR & CHECK*@
-<div class="d-flex justify-content-center align-items-center mx-3 mx-sm-0" style="min-height: 10vh;">
+<div class="d-flex justify-content-center align-items-center" style="min-height: 10vh;">
 
     <div class="col-xxl-6 col-xl-7 col-lg-9 col-md-10 col-sm-11 col-12 row">
-        <div class="col-8 p-0 text-center my-auto">
+        <div class="col-12 col-sm-8 p-0 text-center my-auto bg-warning">
             @if (Colors != null)
             {
                 @foreach (var color in Colors)
                 {
                     if (IsWin)
                     {
-                        <button class="allBtnColor @color rounded-circle mx-1 mx-lg-3" disabled></button>
+                        <button class="allBtnColor @color rounded-circle mx-2 mx-sm-1 mx-lg-3" disabled></button>
                     }
                     else
                     {
-                        <button class="allBtnColor @color rounded-circle mx-1 mx-lg-3" @onclick="()=> InsertColor((ColorEnum)(Enum.Parse(typeof(ColorEnum),color)))"></button>
+                        <button class="allBtnColor @color rounded-circle mx-2 mx-sm-1 mx-lg-3" @onclick="()=> InsertColor((ColorEnum)(Enum.Parse(typeof(ColorEnum),color)))"></button>
                     }
                 }
             }
         </div>
-        <div class="col-4 my-auto p-0">
+        <div class="col-12 col-sm-4 my-auto mt-3 mt-sm-0">
             @if (IsWin)
             {
                 <button class="btn btn-outline-light w-100 disabled">Vérifier</button>

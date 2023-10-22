@@ -1,4 +1,5 @@
 using MasterMind;
+using MasterMind.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
